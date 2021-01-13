@@ -1,0 +1,15 @@
+{% extends 'adilet_djuraev/index.html.twig' %}
+
+{% block content %}
+    <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+        <div class="row">
+            {{ form_start(form) }}
+            <h2>Update product</h2>
+            <br>
+            {{ form_widget(form) }}
+            <br>
+            <input class=" btn-danger" type = "submit">
+            {{ form_end(form) }}
+        </div>
+    </section>
+{% endblock %}
