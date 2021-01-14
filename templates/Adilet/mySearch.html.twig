@@ -1,0 +1,47 @@
+{% extends 'Adilet/home.html.twig' %}
+
+{% block title %}Search{% endblock %}
+
+{% block body %}
+
+    <form action="{{ path('pupil_search') }}" method="GET">
+        <lable>Id</lable>
+        <input type = "text" name="id">
+        <input type="submit" value="search">
+    </form>
+    <br>
+    <br>
+
+    <h1>Pupil index</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Surename</th>
+            <th>Class</th>
+            <th>School</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% if pupil is defined %}
+                <tr>
+                    <td>{{ pupil.id }}</td>
+                    <td>{{ pupil.name }}</td>
+                    <td>{{ pupil.surename }}</td>
+                    <td>{{ pupil.class }}</td>
+                    <td>{{ pupil.school }}</td>
+                    <td>
+                        <a href="{{ path('pupil_show', {'id': pupil.id}) }}">show</a>
+                        <a href="{{ path('pupil_edit', {'id': pupil.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+
+    <a href="{{ path('pupil_index') }}">back to list</a>
+{% endblock %}
